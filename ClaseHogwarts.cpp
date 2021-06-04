@@ -10,10 +10,10 @@ vector<MagoHufflepuff* > ClaseHogwarts::getMagos_hufflepuff(){
 	return this->magos_hufflepuff;
 }
 vector<MagoRavenclaw* > ClaseHogwarts::getMagos_ravenclaw(){
-	return this->getMagos_ravenclaw();
+	return this->magos_ravenclaw;
 }
 vector<MagoSlytherin* > ClaseHogwarts::getMagos_slytherin(){
-	return this->getMagos_slytherin();
+	return this->magos_slytherin;
 }
 ClaseHogwarts::getAno(){
 	return this->ano;
