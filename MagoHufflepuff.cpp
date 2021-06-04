@@ -1,7 +1,7 @@
 #include "MagoHufflepuff.h"
 
 MagoHufflepuff::MagoHufflepuff() {
-	srand(time(NULL));
+	
 	this->astucia=rand()%101;
 	this->inteligencia = rand()%101;
 	this->lealtad = (rand()%21)+80;

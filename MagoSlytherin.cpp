@@ -1,7 +1,7 @@
 #include "MagoSlytherin.h"
 
 MagoSlytherin::MagoSlytherin(){
-	srand(time(NULL));
+	
 	this->astucia=(rand()%21)+80;
 	this->inteligencia = rand()%101;
 	this->lealtad = rand()%101;
