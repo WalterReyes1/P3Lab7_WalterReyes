@@ -1,7 +1,6 @@
 #include "MagoRavenclaw.h"
 
 MagoRavenclaw::MagoRavenclaw() {
-	srand(time(NULL));
 	this->astucia=rand()%101;
 	this->inteligencia = (rand()%21)+80;
 	this->lealtad = rand()%101;

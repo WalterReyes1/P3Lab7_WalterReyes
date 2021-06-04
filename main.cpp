@@ -17,14 +17,13 @@ int menu() {
 	while(true) {
 		cout<<"Bienvenido "<<endl;
 		cout<<"1.Crear magos"<<endl;
-		cout<<"2.Separar por casa"<<endl;
-		cout<<"3.Imprimir por casa"<<endl;
-		cout<<"4.Imprimir cualidades promedio de cada casa"<<endl;
-		cout<<"5.Salir"<<endl;
+		cout<<"2.Imprimir por casa"<<endl;
+		cout<<"3.Imprimir cualidades promedio de cada casa"<<endl;
+		cout<<"4.Salir"<<endl;
 
 		cout<<"Eliga una opcion: ";
 		cin>>opcion;
-		if(opcion > 0 && opcion <6) {
+		if(opcion > 0 && opcion <5) {
 			return opcion;
 		}
 	}
@@ -32,53 +31,46 @@ int menu() {
 int main(int argc, char** argv) {
 	ClaseHogwarts* h;
 	vector<Mago*>lista_magos;
-	while(opcion !=5 ) {
+	while(opcion !=4 ) {
 		switch(opcion = menu()) {
 			case 1: {
 				srand(time(NULL));
 				double x;
-				for(int i = 0; i<=19; i++) {
+				int y = (rand()%20)+20;
+				for(int i = 0; i<y; i++) {
 					x = (rand()/(double)RAND_MAX) ;
-					cout<<x<<endl;
+				//	cout<<x<<endl;
 					if(x<0.25) {
 						MagoSlytherin* s = new MagoSlytherin();
 						lista_magos.push_back(s);
-						cout<<"S"<<endl;
+					//	cout<<"S"<<endl;
 					}
 					if(x>=0.25 && x<0.5) {
 						MagoRavenclaw* r = new MagoRavenclaw();
 						lista_magos.push_back(r);
-						cout<<"R"<<endl;
+					//	cout<<"R"<<endl;
 					}
 					if(x>=0.5 && x<0.75) {
 						MagoHufflepuff* h = new MagoHufflepuff();
 						lista_magos.push_back(h);
-						cout<<"H"<<endl;
+					//	cout<<"H"<<endl;
 					}
 					if(x>=0.75 && x<=1) {
 						MagoGryffindor* g = new MagoGryffindor();
 						lista_magos.push_back(g);
-						cout<<"G"<<endl;
+					//	cout<<"G"<<endl;
 					}
 				}
-
-				int z = lista_magos.size();
-				cout<<z<<endl;
-
-				break;
-			}//fin caso 1;
-			case 2: {
 				SombreroClasificador* s;
 				int ano;
 				cout<<"Ingrese ano de entrada: ";
 				h=s->clasificar_magos_nuevos(lista_magos,ano);
 				cin>>ano;
 
-				break;
-			}// fin case 2
-			case 3: {
-				//imprimir Slytherin
 
+				break;
+			}//fin caso 1;
+			case 2: {
 				cout<<"Slytherin! "<<endl;
 				for(int i = 0; i< h->getMagos_slytherin().size(); i++) {
 					MagoSlytherin* s = h->getMagos_slytherin().at(i);
@@ -102,9 +94,21 @@ int main(int argc, char** argv) {
 					MagoRavenclaw* r = h->getMagos_ravenclaw().at(i);
 					cout<<i+1<<". "<<r->toString()<<endl;
 				}
+
+				break;
+			}// fin case 2
+			case 3: {
+
+				h->promedio_habilidades_por_casa();
+
+				break;
+			}// fin case 3
+			case 4: {
+
 				break;
 			}
 		}
 	}
+	delete h;
 	return 0;
 }

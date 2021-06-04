@@ -5,6 +5,8 @@
 #include "MagoRavenclaw.h"
 #include "MagoGryffindor.h"
 #include <vector>
+#include<iostream>
+using namespace std;
 class ClaseHogwarts {
 	public:
 		ClaseHogwarts(int);
@@ -22,6 +24,7 @@ class ClaseHogwarts {
 		void setAno(int);
 		string toString();
 		void promedio_habilidades_por_casa();
+		~ClaseHogwarts();
 	protected:
 		int ano;
 		vector<MagoSlytherin*>magos_slytherin;
